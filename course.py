@@ -1,3 +1,9 @@
+import sys
+import os
+def resource_path(relative_path):
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
+
 #Course Module
 from tkinter import*
 from PIL import Image,ImageTk  
@@ -100,7 +106,7 @@ class CourseClass:
         self.courseName1.config(state=NORMAL)
 
     def delete(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             if self.var_course.get()=="":
@@ -137,7 +143,7 @@ class CourseClass:
 
 # Adding Details and Saving
     def add(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             if self.var_course.get()=="":
@@ -162,7 +168,7 @@ class CourseClass:
             messagebox.showerror("Error",f"Error due to {str(ex)}")
     #Updating Details
     def update(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             if self.var_course.get()=="":
@@ -187,7 +193,7 @@ class CourseClass:
             messagebox.showerror("Error",f"Error due to {str(ex)}")
     
     def show(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             cur.execute("Select * from course")
@@ -200,7 +206,7 @@ class CourseClass:
             messagebox.showerror("Error",f"Error due to {str(ex)}")
 
     def search(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             cur.execute(f"Select * from course where name LIKE '%{self.var_search.get()}%'")

@@ -1,3 +1,9 @@
+import sys
+import os
+def resource_path(relative_path):
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
+
 #Student Module
 from os import name
 from tkinter import*
@@ -175,7 +181,7 @@ class StudentClass:
         self.var_search.set("")
 
     def delete(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             if self.var_roll.get()=="" :
@@ -221,7 +227,7 @@ class StudentClass:
 
 # Adding Details and Saving
     def add(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             if self.var_roll.get()==""or self.var_name.get()=="" or self.var_email.get()=="" or self.var_course=="Select":
@@ -255,7 +261,7 @@ class StudentClass:
             messagebox.showerror("Error",f"Error due to {str(ex)}")
     #Updating Details
     def update(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             if self.var_roll.get()=="":
@@ -289,7 +295,7 @@ class StudentClass:
             messagebox.showerror("Error",f"Error due to {str(ex)}")
     
     def show(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             cur.execute("Select * from student")
@@ -302,7 +308,7 @@ class StudentClass:
             messagebox.showerror("Error",f"Error due to {str(ex)}")
     
     def fetch_course(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             cur.execute("Select name from course")
@@ -315,7 +321,7 @@ class StudentClass:
             messagebox.showerror("Error",f"Error due to {str(ex)}")
 
     def search(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             cur.execute("Select * from student where roll=?",(self.var_search.get(),))

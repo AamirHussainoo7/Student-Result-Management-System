@@ -1,7 +1,13 @@
+import sys
+import os
+def resource_path(relative_path):
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
+
 #Database File
 import sqlite3
 def create_db():
-    conn=sqlite3.connect(database="ResultManagementSystem.db")
+    conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
     cur=conn.cursor()
 #Table Creation for Course Page
     cur.execute("Create table if not exists course(cid INTEGER primary key AutoIncrement,name text,duration text, charges text,description text)")

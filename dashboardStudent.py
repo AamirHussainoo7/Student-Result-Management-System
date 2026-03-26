@@ -1,3 +1,8 @@
+import sys
+def resource_path(relative_path):
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
+
 #Student Dashboard
 from tkinter import*
 from tkinter import messagebox,ttk
@@ -50,7 +55,7 @@ class studentSystem:
 
 #Functions
     def search(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             if self.var_search.get()=="":

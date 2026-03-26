@@ -1,3 +1,9 @@
+import sys
+import os
+def resource_path(relative_path):
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    return os.path.join(base_path, relative_path)
+
 #View Result
 from tkinter import*
 from PIL import Image,ImageTk  
@@ -51,7 +57,7 @@ class ViewClass:
 
     #------------------------------
     def search(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             if self.var_search.get()=="":
@@ -84,7 +90,7 @@ class ViewClass:
         self.var_search.set("")
 
     def delete(self):
-        conn=sqlite3.connect(database="ResultManagementSystem.db")
+        conn=sqlite3.connect(resource_path('ResultManagementSystem.db'))
         cur=conn.cursor()     
         try:
             if self.var_id=="":
