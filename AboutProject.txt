@@ -1,6 +1,6 @@
 proect Name - "Student Result Management System"
 
-Software Used :- Tkinter as GUI, Windows 10, SQLite as database, Python as Language
+Software Used :- Tkinter as GUI, SQLite as database, Python as Language
 
 #Durring development we installed fallowing two modules.
 database - SQLite3 (DB Browser)
