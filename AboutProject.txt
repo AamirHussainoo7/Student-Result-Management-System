@@ -1,12 +1,5 @@
 proect Name - "Student Result Management System"
 
-Mentor Name:- Mr.Sunil Kumar aralimara channappa
-
-Developer Name:- Shubham Satish Kumbhar
-
-
-Objective:- The objective of this project is to help the teachers of private classes to maintain the details of courses,students and declare the results of student with the secure login into the system. The student can login with their id and they can also see their results.
-
 Software Used :- Tkinter as GUI, Windows 10, SQLite as database, Python as Language
 
 #Durring development we installed fallowing two modules.
