@@ -58,6 +58,18 @@ python login.py
 ## 📸 Screenshots
 
 
+### 🏠 Dashboard
+![Dashboard](Screenshots/Dashboard.png)
+
+### 📚 Courses
+![Courses](Screenshots/Courses.png)
+
+### 📊 Result
+![Result](Screenshots/Result.png)
+
+### 👨‍🎓 Student Details
+![Student Details](Screenshots/Student Details.png)
+
 ## 📁 Project Structure
 
 * login.py → Entry point
